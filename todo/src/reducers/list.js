@@ -7,10 +7,7 @@ export function reducer(state, action) {
             return [...state, action.payload]
             
         case "CLEAR_LIST":
-            return {
-                ...state,
-                list: state.list
-            }
+            return initialState
         case "COMPLETED_ITEM":
             return state.map(x => {
                 if (x.item === action.payload) {
