@@ -16,7 +16,7 @@ function List() {
     }
     const handleChange = e =>{
         setForm({
-            [e.target.name]: [e.target.value],
+            [e.target.name]: e.target.value,
             completed: false
         })
     }
@@ -33,8 +33,9 @@ function List() {
     return (
         <>
             <ol>
-                {state.list.map((listobj, index) => {
-                    return <li key={index} className={listobj.completed ? "toggle" : ""}>{listobj.item} <button value={index} onClick={completeItem}> completed </button></li> 
+                {console.log(state)}
+                {state.map((listobj, index) => {
+                    return <li key={index} className={listobj.completed ? "toggle" : ""}>{listobj.item} <button value={listobj.item} onClick={completeItem}> completed </button></li> 
                 })}
             </ol>
             <form onSubmit={handleSubmit}>
